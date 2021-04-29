@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "565533558671",
+    "project_id": "codeblackdatabase-1dacf",
+    "storage_bucket": "codeblackdatabase-1dacf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:565533558671:android:08ac74f5b6c8e24f3c2dfa",
+        "android_client_info": {
+          "package_name": "com.example.codeblack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "565533558671-k9r0v1ca85adk03dvr15chdvr4ngnb8u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9dXIseMlj3VH-lYd25H9la1T2RruBvWI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "565533558671-k9r0v1ca85adk03dvr15chdvr4ngnb8u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
