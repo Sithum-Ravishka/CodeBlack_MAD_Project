@@ -22,8 +22,10 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout2"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="363dp"
         android:layout_height="69dp"
+        android:layout_below="@id/textView12"
         android:layout_marginTop="44dp"
         app:boxBackgroundColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,8 +44,10 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout3"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="363dp"
         android:layout_height="69dp"
+        android:layout_below="@id/textInputLayout2"
         android:layout_marginTop="36dp"
         app:boxBackgroundColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,6 +66,7 @@
         android:id="@+id/registerBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/textInputLayout3"
         android:layout_marginTop="46dp"
         android:text="@string/regBtn"
         app:layout_constraintEnd_toEndOf="parent"
