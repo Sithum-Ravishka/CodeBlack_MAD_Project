@@ -7,28 +7,26 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import java.util.regex.Pattern;
 
 public class RegistrationPage extends AppCompatActivity {
 
     //Views
     EditText uEmailReg, uPasswordReg;
     Button uRegisterBtn;
+    TextView uHaveAccountTxt;
 
     //progressbar to display while register user
     ProgressDialog progressDialog;
@@ -49,9 +47,10 @@ public class RegistrationPage extends AppCompatActivity {
         actionBar.setDisplayShowHomeEnabled(true);
 
         //Init
-        uEmailReg = findViewById(R.id.emailReg);
-        uPasswordReg = findViewById(R.id.passwordReg);
-        uRegisterBtn = findViewById(R.id.registerBtn);
+        uEmailReg = findViewById(R.id.emailLog);
+        uPasswordReg = findViewById(R.id.passwordLog);
+        uRegisterBtn = findViewById(R.id.loginBtn);
+        uHaveAccountTxt = findViewById(R.id.notHave_accountTxt);
 
         //In your sign-in activity's onCreate method, et the shared instance of the FirebaseAuth object: Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
@@ -80,6 +79,13 @@ public class RegistrationPage extends AppCompatActivity {
                 else {
                     registerUser(email,password); //Register the User
                 }
+            }
+        });
+        //handle login textView click listener
+        uHaveAccountTxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(RegistrationPage.this, LoginActivity.class));
             }
         });
     }

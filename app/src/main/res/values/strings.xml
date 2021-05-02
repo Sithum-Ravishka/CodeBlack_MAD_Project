@@ -24,4 +24,8 @@
     <string name="regHintPass">Enter Password</string>
     <string name="regBtn">REGISTER</string>
     <string name="txtProfile">Profile</string>
+    <string name="regLoginTxt">Already have account? Login</string>
+    <string name="logLable1">Login</string>
+    <string name="logNothaveAcc">Not have account? Register</string>
+    <string name="logBtn">Login</string>
 </resources>
