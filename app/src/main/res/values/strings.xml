@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">CodeBlack</string>
+    <string name="hintID">Plase enter student id</string>
+    <string name="hintName">Plase enter student name</string>
+    <string name="hintAdd">Plase enter student address</string>
+    <string name="hintCon">Plase enter contact no</string>
+    <string name="SaveB">SAVE</string>
+    <string name="ShowB">SHOW</string>
+    <string name="UpdB">UPDATE</string>
+    <string name="DelB">DELETE</string>
+    <string name="propertyType">Property Type</string>
+    <string name="RaD">Advertisment Details</string>
+    <string name="accommodates">Accommodates</string>
+    <string name="des1">The maximum number of people who can sleep comfortably</string>
+    <string name="des2">given the total bed space</string>
 </resources>
