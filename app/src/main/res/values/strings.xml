@@ -13,4 +13,15 @@
     <string name="accommodates">Accommodates</string>
     <string name="des1">The maximum number of people who can sleep comfortably</string>
     <string name="des2">given the total bed space</string>
+    <string name="hintAdults">Adults</string>
+    <string name="welDes1">Let\'s get started</string>
+    <string name="welDes2">Sign into view options what we have</string>
+    <string name="btnRegister">Register</string>
+    <string name="btnLogin">Login</string>
+    <string name="welDes3">Not a member ? please register</string>
+    <string name="regLabel1">Register</string>
+    <string name="regHintEmail">Enter Your E-mail</string>
+    <string name="regHintPass">Enter Password</string>
+    <string name="regBtn">REGISTER</string>
+    <string name="txtProfile">Profile</string>
 </resources>

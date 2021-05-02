@@ -83,7 +83,7 @@ tools:context=".MainActivity">
                 app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/outlinedTextField"
+                android:id="@+id/outlinedTextField1"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="148dp"
                 android:layout_height="0dp"
@@ -97,8 +97,8 @@ tools:context=".MainActivity">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:hint="          Adults"
+                    android:layout_height="55dp"
+                    android:hint="@string/hintAdults"
                     android:rotationX="0" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -110,16 +110,16 @@ tools:context=".MainActivity">
                 android:layout_marginEnd="180dp"
                 android:text="TextView"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/outlinedTextField" />
+                app:layout_constraintTop_toBottomOf="@+id/outlinedTextField1" />
 
             <Button
                 android:id="@+id/button3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="488dp"
+                android:layout_marginTop="404dp"
                 android:text="Button"
                 app:layout_constraintTop_toBottomOf="@+id/textView11"
-                tools:layout_editor_absoluteX="185dp" />
+                tools:layout_editor_absoluteX="104dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
