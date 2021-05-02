@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+public class Create_Property_Advertisement extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
