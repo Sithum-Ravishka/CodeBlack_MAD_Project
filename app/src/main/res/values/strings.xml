@@ -28,4 +28,5 @@
     <string name="logLable1">Login</string>
     <string name="logNothaveAcc">Not have account? Register</string>
     <string name="logBtn">Login</string>
+    <string name="fpRecover">Forgot Password? Recover</string>
 </resources>

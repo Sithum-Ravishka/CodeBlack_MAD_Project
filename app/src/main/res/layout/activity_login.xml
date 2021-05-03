@@ -12,7 +12,7 @@
         android:id="@+id/textView12"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="24dp"
         android:text="@string/logLable1"
         android:textAlignment="center"
         android:textColor="@color/black"
@@ -20,17 +20,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
         android:id="@+id/loginBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="354dp"
+        android:layout_height="46dp"
         android:layout_below="@id/textInputLayout3"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="24dp"
         android:text="@string/logBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
 
@@ -38,11 +38,13 @@
         android:id="@+id/notHave_accountTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="52dp"
+        android:background="#32E639"
         android:text="@string/logNothaveAcc"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginBtn" />
+        app:layout_constraintTop_toBottomOf="@+id/passRecoverTxt" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout3"
@@ -50,7 +52,7 @@
         android:layout_width="363dp"
         android:layout_height="69dp"
         android:layout_below="@id/textInputLayout2"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="16dp"
         app:boxBackgroundColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,7 +72,7 @@
         android:layout_width="363dp"
         android:layout_height="69dp"
         android:layout_below="@id/textView12"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="16dp"
         app:boxBackgroundColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -84,6 +86,28 @@
             android:hint="@string/regHintEmail"
             android:rotationX="0" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/passRecoverTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/fpRecover"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginBtn" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="613dp"
+        android:layout_height="178dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/_23"
+        tools:srcCompat="@drawable/_23" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
