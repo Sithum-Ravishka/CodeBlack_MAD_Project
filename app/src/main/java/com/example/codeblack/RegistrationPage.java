@@ -86,6 +86,7 @@ public class RegistrationPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(RegistrationPage.this, LoginActivity.class));
+                finish();
             }
         });
     }
@@ -95,31 +96,31 @@ public class RegistrationPage extends AppCompatActivity {
         progressDialog.show();
 
 
-            mAuth.createUserWithEmailAndPassword(email,password)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                // Sign in success, dismiss dialog and start register page
-                                progressDialog.dismiss();
-                                FirebaseUser user = mAuth.getCurrentUser();
-                                Toast.makeText(RegistrationPage.this, "Registered...\n"+user.getEmail(), Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(RegistrationPage.this, UserProfileActivity.class));
-                                finish();
-                            } else {
-                                // If sign in fails, display a message to the user.
-                                progressDialog.dismiss();
-                                Toast.makeText(RegistrationPage.this, "Authentication Failed.", Toast.LENGTH_SHORT).show();
-                            }
+        mAuth.createUserWithEmailAndPassword(email,password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, dismiss dialog and start register page
+                            progressDialog.dismiss();
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            Toast.makeText(RegistrationPage.this, "Registered...\n"+user.getEmail(), Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(RegistrationPage.this, UserProfileActivity.class));
+                            finish();
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            progressDialog.dismiss();
+                            Toast.makeText(RegistrationPage.this, "Authentication Failed.", Toast.LENGTH_SHORT).show();
                         }
-                    }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    //error, dismiss progress dialog and get and show the error message
-                    progressDialog.dismiss();
-                    Toast.makeText(RegistrationPage.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            });
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                //error, dismiss progress dialog and get and show the error message
+                progressDialog.dismiss();
+                Toast.makeText(RegistrationPage.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 

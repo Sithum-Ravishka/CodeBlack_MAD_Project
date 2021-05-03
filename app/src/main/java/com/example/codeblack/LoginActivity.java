@@ -4,13 +4,17 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
 
     //views
     EditText uEmailLog, uPasswordLog;
-    TextView uNotHave_AccountTxt;
+    TextView uNotHave_AccountTxt, uPassRecoverTxt;
     Button uLoginBtn;
 
     //Declare an instance FirebaseAuth
@@ -55,6 +59,7 @@ public class LoginActivity extends AppCompatActivity {
         uPasswordLog = findViewById(R.id.passwordLog);
         uLoginBtn = findViewById(R.id.loginBtn);
         uNotHave_AccountTxt = findViewById(R.id.notHave_accountTxt);
+        uPassRecoverTxt = findViewById(R.id.passRecoverTxt);
 
         //Login button Click
         uLoginBtn.setOnClickListener(new View.OnClickListener() {
@@ -80,15 +85,91 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(LoginActivity.this, RegistrationPage.class));
+                finish();
             }
         });
+        //Recover password textView click
+        uPassRecoverTxt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showRecoverPasswordDialog();
+            }
+        });
+
         //init progress dialog
         PD = new ProgressDialog(this);
-        PD.setMessage("Logging In");
+    }
+
+    private void showRecoverPasswordDialog() {
+        //Alert Dialog
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Recover Password");
+
+        //set layout liner layout
+        LinearLayout linearLayout = new LinearLayout(this);
+        //Views to set in dialog
+        EditText emailLog = new EditText(this);
+        emailLog.setHint("Email");
+        emailLog.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+        /*sets the min width of a editView to fit a text of n 'M' latter regardless of the actual text extension and text size*/
+        emailLog.setMinEms(16);
+
+        linearLayout.addView(emailLog);
+        linearLayout.setPadding(10,10,10,10);
+
+        builder.setView(linearLayout);
+
+        //button recover
+        builder.setPositiveButton("Recover", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //input email
+                String email = emailLog.getText().toString().trim();
+                beginRecover(email);
+            }
+        });
+        //button cancel
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //dismiss dialog
+                dialog.dismiss();
+            }
+        });
+
+        //show dialog
+        builder.create().show();
+
+    }
+
+    private void beginRecover(String email) {
+        //show progress dialog
+        PD.setMessage("Sending email");
+        PD.show();
+        mAuth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                PD.dismiss();
+                if (task.isSuccessful()){
+                    Toast.makeText(LoginActivity.this, "E-mail sent", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(LoginActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                PD.dismiss();
+                // get and show proper error message
+                Toast.makeText(LoginActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void loginUser(String email, String passw) {
         //show progress dialog
+        PD.setMessage("Logging In");
         PD.show();
         mAuth.signInWithEmailAndPassword(email, passw)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {

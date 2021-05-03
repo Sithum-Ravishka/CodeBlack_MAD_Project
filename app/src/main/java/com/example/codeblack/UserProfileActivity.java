@@ -53,6 +53,12 @@ public class UserProfileActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
+
+    @Override
     protected void onStart() {
         //check on start of app
         checkUserStatus();
