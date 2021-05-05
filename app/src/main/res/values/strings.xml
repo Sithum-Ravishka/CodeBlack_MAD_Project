@@ -28,5 +28,7 @@
     <string name="logLable1">Login</string>
     <string name="logNothaveAcc">Not have account? Register</string>
     <string name="logBtn">Login</string>
-    <string name="fpRecover">Forgot Password? Recover</string>
+    <string name="fpRecover">Forgotten Password?</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -10,7 +10,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -33,6 +32,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -212,7 +215,7 @@ public class LoginActivity extends AppCompatActivity {
                             // Sign in success, dismiss dialog and start register page
                             FirebaseUser user = mAuth.getCurrentUser();
                             //User is logged in, so start LoginActivity
-                            startActivity(new Intent(LoginActivity.this, UserProfileActivity.class));
+                            startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
                             finish();
                         } else {
                             // If sign in fails, display a message to the user.
@@ -264,11 +267,32 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
+
                             FirebaseUser user = mAuth.getCurrentUser();
+                            //Get user email and uid from auth
+                            String email = user.getEmail();
+                            String uid = user.getUid();
+                            //When user is registered store user info in firebase realtime database too
+                            //using HashMap
+                            HashMap<Object, String> hashMap = new HashMap<>();
+                            //put info in hashMap
+                            hashMap.put("email", email);
+                            hashMap.put("uid", uid);
+                            hashMap.put("name", ""); //Will add later (e.g. edit profile)
+                            hashMap.put("phone", "");
+                            hashMap.put("image", "");
+
+                            //fire base database instance
+                            FirebaseDatabase database = FirebaseDatabase.getInstance();
+                            //path to store user data named "Users"
+                            DatabaseReference reference = database.getReference("Users");
+                            //put data within hashMap in database
+                            reference.child(uid).setValue(hashMap);
+
                             //Show user email in Toast
                             Toast.makeText(LoginActivity.this, ""+user.getEmail(), Toast.LENGTH_SHORT).show();
                             //Go to UserProfileActivity after logged in
-                            startActivity(new Intent(LoginActivity.this, UserProfileActivity.class));
+                            startActivity(new Intent(LoginActivity.this, DashboardActivity.class));
                             finish();
                             //updateUI(user);
                         } else {
