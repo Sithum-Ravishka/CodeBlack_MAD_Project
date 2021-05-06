@@ -19,6 +19,9 @@ import androidx.fragment.app.Fragment;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -504,4 +507,20 @@ public class ProfileFragment extends Fragment {
         startActivityForResult(galleryIntent, IMAGE_PICK_GALLERY_CODE);
     }
 
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_main, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        //get item id
+        int id = item.getItemId();
+        if(id == R.id.action_add_ads){
+            startActivity(new Intent(getActivity(), AddAdvertisementActivity.class));
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
