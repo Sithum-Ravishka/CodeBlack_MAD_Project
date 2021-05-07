@@ -163,6 +163,7 @@ public class AddAdvertisementActivity extends AppCompatActivity {
     private void uploadData(String noOfAdult, String noOfChildren, String uri) {
         pd.setMessage("Publishing Advertisement...");
         pd.show();
+        pd.dismiss();
 
         //For ads-image name, ads-id, post publish time
         String timeStamp = String.valueOf(System.currentTimeMillis());
