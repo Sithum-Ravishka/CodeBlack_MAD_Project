@@ -24,9 +24,10 @@ import java.util.List;
 
 
 public class AdsFragment extends Fragment {
+
     RecyclerView recyclerView;
     AdepterAdds adepterAdds;
-    List<modelAdd> addList;
+    List<ModelAdd> addList;
 
 
 
@@ -40,7 +41,7 @@ public class AdsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.row_add, container, false);
+        View view = inflater.inflate(R.layout.fragment_ads, container, false);
 
         //init recycler view
         recyclerView = view.findViewById(R.id.adds_recyclerView);
@@ -65,10 +66,10 @@ public class AdsFragment extends Fragment {
         //get all data from path
         ref.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 addList.clear();
-                for(DataSnapshot ds : snapshot.getChildren()){
-                    modelAdd modelAdd = ds.getValue(com.example.codeblack.modelAdd.class);
+                for(DataSnapshot ds : dataSnapshot.getChildren()){
+                    ModelAdd modelAdd = ds.getValue(ModelAdd.class);
 
                     //get all users accept currently signed in user
                     if(!modelAdd.getUid().equals(fAdd.getUid())){

@@ -18,10 +18,13 @@ import java.util.List;
 public class AdepterAdds extends RecyclerView.Adapter<AdepterAdds.MyHolder> {
 
     Context context;
-    List<modelAdd> addList;
+    List<ModelAdd> addList;
+
+
+
 
     //constructor
-    public AdepterAdds (Context context, List<modelAdd> addList){
+    public AdepterAdds (Context context, List<ModelAdd> addList){
         this.context = context;
         this.addList = addList;
     }
@@ -31,7 +34,7 @@ public class AdepterAdds extends RecyclerView.Adapter<AdepterAdds.MyHolder> {
     public MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.row_add,parent,false);
 
-        return null;
+        return new MyHolder(view);
     }
 
     @Override
@@ -44,7 +47,8 @@ public class AdepterAdds extends RecyclerView.Adapter<AdepterAdds.MyHolder> {
         holder.locationTv.setText(addLocation);
         holder.nameTv.setText(addTitle);
         try{
-            Picasso.get().load(addImage).placeholder(R.drawable.ic_home_black).into(holder.avatarIv);
+            Picasso.get().load(addImage).placeholder(R.drawable.ic_home_black)
+                    .into(holder.avatarIv);
         }
         catch (Exception e){
 
@@ -54,7 +58,7 @@ public class AdepterAdds extends RecyclerView.Adapter<AdepterAdds.MyHolder> {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, ""+addImage, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "", Toast.LENGTH_SHORT).show();
             }
         });
 

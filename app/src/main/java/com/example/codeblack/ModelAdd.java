@@ -1,14 +1,14 @@
 package com.example.codeblack;
 
-public class modelAdd {
+public class ModelAdd {
 
     //
     String pTime,pDesPrice,pBathroom,pKitchen,pTitle,pImage,pState,uid;
 
-    public modelAdd() {
+    public ModelAdd() {
     }
 
-    public modelAdd(String pTime, String pDesPrice, String pBathroom, String pKitchen, String pTitle,String pImage,String pState,String uid) {
+    public ModelAdd(String pTime, String pDesPrice, String pBathroom, String pKitchen, String pTitle, String pImage, String pState, String uid) {
         this.pTime = pTime;
         this.pDesPrice = pDesPrice;
         this.pBathroom = pBathroom;
