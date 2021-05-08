@@ -1,49 +1,49 @@
 package com.example.codeblack;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
+        import androidx.annotation.NonNull;
+        import androidx.annotation.Nullable;
+        import androidx.appcompat.app.ActionBar;
+        import androidx.appcompat.app.AlertDialog;
+        import androidx.appcompat.app.AppCompatActivity;
+        import androidx.core.app.ActivityCompat;
+        import androidx.core.content.ContextCompat;
 
-import android.Manifest;
-import android.app.ProgressDialog;
-import android.content.ContentValues;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.Uri;
-import android.os.Bundle;
-import android.provider.MediaStore;
-import android.text.TextUtils;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.Toast;
+        import android.Manifest;
+        import android.app.ProgressDialog;
+        import android.content.ContentValues;
+        import android.content.DialogInterface;
+        import android.content.Intent;
+        import android.content.pm.PackageManager;
+        import android.net.Uri;
+        import android.os.Bundle;
+        import android.provider.MediaStore;
+        import android.text.TextUtils;
+        import android.view.Menu;
+        import android.view.MenuItem;
+        import android.view.View;
+        import android.widget.Button;
+        import android.widget.EditText;
+        import android.widget.ImageView;
+        import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
+        import com.google.android.gms.tasks.OnFailureListener;
+        import com.google.android.gms.tasks.OnSuccessListener;
+        import com.google.android.gms.tasks.Task;
+        import com.google.firebase.auth.FirebaseAuth;
+        import com.google.firebase.auth.FirebaseUser;
+        import com.google.firebase.database.DataSnapshot;
+        import com.google.firebase.database.DatabaseError;
+        import com.google.firebase.database.DatabaseReference;
+        import com.google.firebase.database.FirebaseDatabase;
+        import com.google.firebase.database.Query;
+        import com.google.firebase.database.ValueEventListener;
+        import com.google.firebase.storage.FirebaseStorage;
+        import com.google.firebase.storage.StorageReference;
+        import com.google.firebase.storage.UploadTask;
 
-import java.util.HashMap;
+        import java.util.HashMap;
 
-public class AddAdvertisementActivity extends AppCompatActivity {
+public class  AddVehicleAdsActivity extends AppCompatActivity {
 
     FirebaseAuth firebaseAuth;
     DatabaseReference userDbRef;
@@ -77,10 +77,11 @@ public class AddAdvertisementActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_advertisement);
+        setContentView(R.layout.activity_add_vehicle_ads);
 
         actionBar = getSupportActionBar();
         actionBar.setTitle("Create New Advertisement");
+
         //Enable back button in actionbar
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -117,7 +118,7 @@ public class AddAdvertisementActivity extends AppCompatActivity {
         });
 
         //init views
-        noAdult = findViewById(R.id.noAdult);
+        noAdult = findViewById(R.id.pname);
         noChildren = findViewById(R.id.noChildren);
         adsImage = findViewById(R.id.adsImage);
         adsPublishBtn = findViewById(R.id.adsPublishBtn);
@@ -139,12 +140,12 @@ public class AddAdvertisementActivity extends AppCompatActivity {
                 String noOfAdult = noAdult.getText().toString().trim();
                 String noOfChildren = noChildren.getText().toString().trim();
                 if (TextUtils.isEmpty(noOfAdult)){
-                    Toast.makeText(AddAdvertisementActivity.this, "Enter No Of Adults...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddVehicleActivity.this, "Enter No Of Adults...", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if (TextUtils.isEmpty(noOfChildren)){
-                    Toast.makeText(AddAdvertisementActivity.this, "Enter No Of Children...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddVehicleActivity.this, "Enter No Of Children...", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -206,7 +207,7 @@ public class AddAdvertisementActivity extends AppCompatActivity {
                                             @Override
                                             public void onSuccess(Void aVoid) {
                                                 //Publish in database
-                                                Toast.makeText(AddAdvertisementActivity.this, "Ads Publishing", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(AddVehicleActivity.this, "Ads Publishing", Toast.LENGTH_SHORT).show();
                                                 //Reset views
                                                 noAdult.setText("");
                                                 noChildren.setText("");
@@ -220,7 +221,7 @@ public class AddAdvertisementActivity extends AppCompatActivity {
                                             public void onFailure(@NonNull Exception e) {
                                                 //Failed publish
                                                 pd.dismiss();
-                                                Toast.makeText(AddAdvertisementActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(AddVehicleActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
                                             }
                                         });
                             }
@@ -231,7 +232,7 @@ public class AddAdvertisementActivity extends AppCompatActivity {
                         public void onFailure(@NonNull Exception e) {
                             //Failed uploading image
                             pd.dismiss();
-                            Toast.makeText(AddAdvertisementActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AddVehicleActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
         }
@@ -258,7 +259,7 @@ public class AddAdvertisementActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(Void aVoid) {
                             //Publish in database
-                            Toast.makeText(AddAdvertisementActivity.this, "Ads Publishing", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AddVehicleActivity.this, "Ads Publishing", Toast.LENGTH_SHORT).show();
                             //Reset views
                             noAdult.setText("");
                             noChildren.setText("");
@@ -272,7 +273,7 @@ public class AddAdvertisementActivity extends AppCompatActivity {
                         public void onFailure(@NonNull Exception e) {
                             //Failed publish
                             pd.dismiss();
-                            Toast.makeText(AddAdvertisementActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AddVehicleActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
 
@@ -393,7 +394,8 @@ public class AddAdvertisementActivity extends AppCompatActivity {
 
     @Override
     public boolean onSupportNavigateUp() {
-        onBackPressed(); //goto previous activity
+        //goto previous activity
+        onBackPressed();
         return super.onSupportNavigateUp();
     }
 

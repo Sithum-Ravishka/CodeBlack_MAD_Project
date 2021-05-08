@@ -12,7 +12,6 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
@@ -47,11 +46,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
-import java.security.Key;
 import java.util.HashMap;
-import java.util.Objects;
-
-import javax.xml.parsers.SAXParser;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -514,12 +509,13 @@ public class ProfileFragment extends Fragment {
         super.onCreateOptionsMenu(menu, inflater);
     }
 
+    /*Handle Menu Item Click*/
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         //get item id
         int id = item.getItemId();
         if(id == R.id.action_add_ads){
-            startActivity(new Intent(getActivity(), AddAdvertisementActivity.class));
+            startActivity(new Intent(getActivity(), AddVehicleActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }

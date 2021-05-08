@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CodeBlack">
-        <activity android:name=".AddAdvertisementActivity"></activity>
+        <activity android:name=".AddVehicleAdsActivity"></activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".DashboardActivity" />
         <activity android:name=".RegistrationPage" />
