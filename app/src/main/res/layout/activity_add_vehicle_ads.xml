@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddVehicleAdsActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp">
+
+        <EditText
+            android:id="@+id/vcn"
+            android:layout_width="193dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="36dp"
+            android:background="@drawable/edittextstyle"
+            android:hint="Enter Your Contact "
+            android:inputType="number"
+            android:padding="10dp"
+            android:singleLine="true"
+            app:layout_constraintBaseline_toBaselineOf="@+id/cnid"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <EditText
+            android:id="@+id/vc"
+            android:layout_width="191dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="36dp"
+            android:background="@drawable/edittextstyle"
+            android:hint="Enter Your City"
+            android:padding="10dp"
+            android:singleLine="true"
+            app:layout_constraintBaseline_toBaselineOf="@+id/cityid"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <EditText
+            android:id="@+id/vdc"
+            android:layout_width="191dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="36dp"
+            android:background="@drawable/edittextstyle"
+            android:hint="Enter Your District"
+            android:padding="10dp"
+            android:singleLine="true"
+            app:layout_constraintBaseline_toBaselineOf="@+id/disid"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <EditText
+            android:id="@+id/vvt"
+            android:layout_width="191dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="36dp"
+            android:background="@drawable/edittextstyle"
+            android:hint="Enter Vehicle Type"
+            android:padding="10dp"
+            android:singleLine="true"
+            app:layout_constraintBaseline_toBaselineOf="@+id/vtid"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <EditText
+            android:id="@+id/vvm"
+            android:layout_width="191dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="36dp"
+            android:background="@drawable/edittextstyle"
+            android:hint="Enter Vehicle Model"
+            android:padding="10dp"
+            android:singleLine="true"
+            app:layout_constraintBaseline_toBaselineOf="@+id/vmid"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <EditText
+            android:id="@+id/vpfkm"
+            android:layout_width="191dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="36dp"
+            android:background="@drawable/edittextstyle"
+            android:hint="Enter Price For 1 KM"
+            android:inputType="number"
+            android:padding="10dp"
+            android:singleLine="true"
+            app:layout_constraintBaseline_toBaselineOf="@+id/pfid"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <EditText
+            android:id="@+id/vsva"
+            android:layout_width="226dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/edittextstyle"
+            android:hint="Available or Not Available"
+            android:padding="10dp"
+            android:singleLine="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/svaid" />
+
+        <EditText
+            android:id="@+id/vpes"
+            android:layout_width="191dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="36dp"
+            android:background="@drawable/edittextstyle"
+            android:hint="Enter Passengers"
+            android:padding="10dp"
+            android:singleLine="true"
+            app:layout_constraintBaseline_toBaselineOf="@+id/pid"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/vdsc"
+            android:layout_width="359dp"
+            android:layout_height="156dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/edittextstyle"
+            android:hint="Enter Description"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            android:padding="10dp"
+            android:singleLine="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/despid" />
+
+        <EditText
+            android:id="@+id/vvc"
+            android:layout_width="191dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="36dp"
+            android:background="@drawable/edittextstyle"
+            android:hint="Enter Vehicle Condition"
+            android:padding="10dp"
+            android:singleLine="true"
+            app:layout_constraintBaseline_toBaselineOf="@+id/vcid"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/cityid"
+            android:layout_width="100dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="36dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="City"
+            android:textAlignment="viewStart"
+            android:textColor="#070707"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cnid" />
+
+        <ImageView
+            android:id="@+id/adsImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:background="@color/black"
+            android:minHeight="200dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/uyvid"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/adsPublishBtn"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:gravity="end"
+            android:text="Publish"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/adsImage" />
+
+        <TextView
+            android:id="@+id/vtid"
+            android:layout_width="132dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Vehicle Type"
+            android:textAlignment="viewStart"
+            android:textColor="#070707"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/disid" />
+
+        <TextView
+            android:id="@+id/pid"
+            android:layout_width="132dp"
+            android:layout_height="37dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Passengers"
+            android:textAlignment="viewStart"
+            android:textColor="#070707"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/pfid"
+            tools:layout_editor_absoluteX="8dp"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/despid"
+            android:layout_width="132dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Description"
+            android:textAlignment="viewStart"
+            android:textColor="#070707"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vsva" />
+
+        <TextView
+            android:id="@+id/uyvid"
+            android:layout_width="267dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Upload Your Vehicle Photos"
+            android:textAlignment="viewStart"
+            android:textColor="#070707"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vdsc" />
+
+        <TextView
+            android:id="@+id/vcid"
+            android:layout_width="165dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Vehicle Condition"
+            android:textAlignment="viewStart"
+            android:textColor="#070707"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vtid" />
+
+        <TextView
+            android:id="@+id/vmid"
+            android:layout_width="139dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Vehicle Model"
+            android:textAlignment="viewStart"
+            android:textColor="#070707"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vcid" />
+
+        <TextView
+            android:id="@+id/pfid"
+            android:layout_width="144dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Price for 1 KM"
+            android:textAlignment="viewStart"
+            android:textColor="#070707"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vmid" />
+
+        <TextView
+            android:id="@+id/svaid"
+            android:layout_width="270dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Select Vehicle Available or Not"
+            android:textAlignment="viewStart"
+            android:textColor="#070707"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pid" />
+
+        <TextView
+            android:id="@+id/disid"
+            android:layout_width="100dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="28dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="District"
+            android:textAlignment="viewStart"
+            android:textColor="#070707"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cityid" />
+
+        <TextView
+            android:id="@+id/cnid"
+            android:layout_width="134dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="36dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Contact Number"
+            android:textAlignment="viewStart"
+            android:textColor="#070707"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+        <EditText
+            android:id="@+id/vname"
+            android:layout_width="193dp"
+            android:layout_height="44dp"
+            android:layout_marginEnd="36dp"
+            android:background="@drawable/edittextstyle"
+            android:hint="Enter Your Name"
+            android:padding="10dp"
+            android:singleLine="true"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView5"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Name"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
