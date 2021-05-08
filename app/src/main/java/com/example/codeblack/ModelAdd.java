@@ -2,12 +2,14 @@ package com.example.codeblack;
 
 public class ModelAdd {
 
-    //
+    //parameters
     String pTime,pDesPrice,pBathroom,pKitchen,pTitle,pImage,pState,uid;
 
+    //default constructor
     public ModelAdd() {
     }
 
+    //overloaded constructor
     public ModelAdd(String pTime, String pDesPrice, String pBathroom, String pKitchen, String pTitle, String pImage, String pState, String uid) {
         this.pTime = pTime;
         this.pDesPrice = pDesPrice;
@@ -17,8 +19,11 @@ public class ModelAdd {
         this.pImage = pImage;
         this.pState  = pState;
         this.uid = uid;
+
+
     }
 
+    //Getter and setters
     public String getpTime() {
         return pTime;
     }
