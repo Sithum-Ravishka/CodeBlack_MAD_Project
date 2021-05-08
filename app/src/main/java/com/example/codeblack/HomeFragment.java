@@ -57,6 +57,9 @@ public class HomeFragment extends Fragment {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         if(id == R.id.action_add_ads){
+            startActivity(new Intent(getActivity(), AddAdvertisementActivity.class));
+        }
+        if(id == R.id.action_add_vads){
             startActivity(new Intent(getActivity(), AddVehicleAdsActivity.class));
         }
         return super.onOptionsItemSelected(item);

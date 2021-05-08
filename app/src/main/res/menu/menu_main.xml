@@ -9,4 +9,9 @@
         android:title="Add Ads"
         app:showAsAction="always"
         android:icon="@drawable/ic_ads_white"/>
+
+    <item android:id="@+id/action_add_vads"
+        android:title="Add Ads"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_ads_vehicle"/>
 </menu>
