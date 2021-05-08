@@ -515,7 +515,7 @@ public class ProfileFragment extends Fragment {
         //get item id
         int id = item.getItemId();
         if(id == R.id.action_add_ads){
-            startActivity(new Intent(getActivity(), AddVehicleActivity.class));
+            startActivity(new Intent(getActivity(),AddVehicleAdsActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }

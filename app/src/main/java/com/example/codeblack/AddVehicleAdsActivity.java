@@ -61,7 +61,7 @@ public class  AddVehicleAdsActivity extends AppCompatActivity {
     String[] storagePermissions;
 
     //Views
-    EditText noAdult, noChildren;
+    EditText vname, vcn, vc, vdc, vvt, vvc, vvm, vpfkm, vpes, vsva, vdsc;
     ImageView adsImage;
     Button adsPublishBtn;
 
@@ -118,8 +118,17 @@ public class  AddVehicleAdsActivity extends AppCompatActivity {
         });
 
         //init views
-        noAdult = findViewById(R.id.pname);
-        noChildren = findViewById(R.id.noChildren);
+        vname = findViewById(R.id.vname);
+        vcn = findViewById(R.id.vcn);
+        vc = findViewById(R.id.vc);
+        vdc = findViewById(R.id.vdc);
+        vvt = findViewById(R.id.vvt);
+        vvc = findViewById(R.id.vvc);
+        vvm = findViewById(R.id.vvm);
+        vpfkm = findViewById(R.id.vpfkm);
+        vpes = findViewById(R.id.vpes);
+        vsva = findViewById(R.id.vsva);
+        vdsc = findViewById(R.id.vdsc);
         adsImage = findViewById(R.id.adsImage);
         adsPublishBtn = findViewById(R.id.adsPublishBtn);
 
@@ -137,31 +146,87 @@ public class  AddVehicleAdsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Get data(title, description) from EditText
-                String noOfAdult = noAdult.getText().toString().trim();
-                String noOfChildren = noChildren.getText().toString().trim();
-                if (TextUtils.isEmpty(noOfAdult)){
-                    Toast.makeText(AddVehicleActivity.this, "Enter No Of Adults...", Toast.LENGTH_SHORT).show();
+                String userName = vname.getText().toString().trim();
+                String userContactNumber = vcn.getText().toString().trim();
+                String userCity = vc.getText().toString().trim();
+                String userDistrid = vdc.getText().toString().trim();
+                String userVehicleType = vvt.getText().toString().trim();
+                String userVehicleCondition = vvc.getText().toString().trim();
+                String userVehicleModel = vvm.getText().toString().trim();
+                String userprice = vpfkm.getText().toString().trim();
+                String usergetpssenger = vpes.getText().toString().trim();
+                String userselect = vsva.getText().toString().trim();
+                String userDesctription = vdsc.getText().toString().trim();
+
+                if (TextUtils.isEmpty(userName)){
+                    Toast.makeText(AddVehicleAdsActivity.this, "Enter No Of Adults...", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                if (TextUtils.isEmpty(noOfChildren)){
-                    Toast.makeText(AddVehicleActivity.this, "Enter No Of Children...", Toast.LENGTH_SHORT).show();
+                if (TextUtils.isEmpty(userContactNumber)){
+                    Toast.makeText(AddVehicleAdsActivity.this, "Enter No Of Children...", Toast.LENGTH_SHORT).show();
                     return;
                 }
+
+                if (TextUtils.isEmpty(userCity)){
+                    Toast.makeText(AddVehicleAdsActivity.this, "Enter No Of Adults...", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(userDistrid)){
+                    Toast.makeText(AddVehicleAdsActivity.this, "Enter No Of Adults...", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(userVehicleType)){
+                    Toast.makeText(AddVehicleAdsActivity.this, "Enter No Of Adults...", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(userVehicleCondition)){
+                    Toast.makeText(AddVehicleAdsActivity.this, "Enter No Of Adults...", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(userVehicleModel)){
+                    Toast.makeText(AddVehicleAdsActivity.this, "Enter No Of Adults...", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(userprice)){
+                    Toast.makeText(AddVehicleAdsActivity.this, "Enter No Of Adults...", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(usergetpssenger)){
+                    Toast.makeText(AddVehicleAdsActivity.this, "Enter No Of Adults...", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(userselect)){
+                    Toast.makeText(AddVehicleAdsActivity.this, "Enter No Of Adults...", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(userDesctription)){
+                    Toast.makeText(AddVehicleAdsActivity.this, "Enter No Of Adults...", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
 
                 if (image_uri==null){
                     //Post without image
-                    uploadData(noOfAdult, noOfChildren, "noImage");
+                    uploadData(userName, userContactNumber, userCity, userDistrid, userVehicleType, userVehicleCondition, userVehicleModel, userprice, usergetpssenger, userselect, userDesctription,  "noImage");
                 }
                 else {
                     //Post with image
-                    uploadData(noOfAdult, noOfChildren, String.valueOf(image_uri));
+                    uploadData(userName, userContactNumber, userCity, userDistrid, userVehicleType, userVehicleCondition, userVehicleModel, userprice, usergetpssenger, userselect, userDesctription, String.valueOf(image_uri));
                 }
             }
         });
     }
 
-    private void uploadData(String noOfAdult, String noOfChildren, String uri) {
+    private void uploadData(String userName, String userContactNumber, String userCity, String userDistrid, String userVehicleType, String userVehicleCondition, String userVehicleModel, String userprice, String usergetpssenger, String userselect, String userDesctription, String uri) {
         pd.setMessage("Publishing Advertisement...");
         pd.show();
         pd.dismiss();
@@ -194,8 +259,17 @@ public class  AddVehicleAdsActivity extends AppCompatActivity {
                                 hashMap.put("uEmail",email);
                                 hashMap.put("uDp",dp);
                                 hashMap.put("pId",timeStamp);
-                                hashMap.put("pAdult",noOfAdult);
-                                hashMap.put("pChildern", noOfChildren);
+                                hashMap.put("vname",userName);
+                                hashMap.put("vcontact", userContactNumber);
+                                hashMap.put("vcity",userCity );
+                                hashMap.put("vdistrict",userDistrid);
+                                hashMap.put("vvehicleType",userVehicleType);
+                                hashMap.put("vvehicleCondition",userVehicleCondition);
+                                hashMap.put("vvehicleModle",userVehicleModel);
+                                hashMap.put("vprice",userprice );
+                                hashMap.put("vpassenger",usergetpssenger);
+                                hashMap.put("vselect",userselect);
+                                hashMap.put("vdesctription",userDesctription);
                                 hashMap.put("pImage", downloadUri);
                                 hashMap.put("pTime", timeStamp);
 
@@ -207,10 +281,19 @@ public class  AddVehicleAdsActivity extends AppCompatActivity {
                                             @Override
                                             public void onSuccess(Void aVoid) {
                                                 //Publish in database
-                                                Toast.makeText(AddVehicleActivity.this, "Ads Publishing", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(AddVehicleAdsActivity.this, "Ads Publishing", Toast.LENGTH_SHORT).show();
                                                 //Reset views
-                                                noAdult.setText("");
-                                                noChildren.setText("");
+                                                vname.setText("");
+                                                vcn.setText("");
+                                                vc.setText("");
+                                                vdc.setText("");
+                                                vvt.setText("");
+                                                vvc.setText("");
+                                                vvm.setText("");
+                                                vpfkm.setText("");
+                                                vpes.setText("");
+                                                vsva.setText("");
+                                                vdsc.setText("");
                                                 adsImage.setImageURI(null);
                                                 image_uri = null;
 
@@ -221,7 +304,7 @@ public class  AddVehicleAdsActivity extends AppCompatActivity {
                                             public void onFailure(@NonNull Exception e) {
                                                 //Failed publish
                                                 pd.dismiss();
-                                                Toast.makeText(AddVehicleActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(AddVehicleAdsActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
                                             }
                                         });
                             }
@@ -232,7 +315,7 @@ public class  AddVehicleAdsActivity extends AppCompatActivity {
                         public void onFailure(@NonNull Exception e) {
                             //Failed uploading image
                             pd.dismiss();
-                            Toast.makeText(AddVehicleActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AddVehicleAdsActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
         }
@@ -246,8 +329,17 @@ public class  AddVehicleAdsActivity extends AppCompatActivity {
             hashMap.put("uEmail",email);
             hashMap.put("uDp",dp);
             hashMap.put("pId",timeStamp);
-            hashMap.put("pAdult",noOfAdult);
-            hashMap.put("pChildern", noOfChildren);
+            hashMap.put("vname",userName);
+            hashMap.put("vcontact", userContactNumber);
+            hashMap.put("vcity",userCity );
+            hashMap.put("vdistrict",userDistrid);
+            hashMap.put("vvehicleType",userVehicleType);
+            hashMap.put("vvehicleCondition",userVehicleCondition);
+            hashMap.put("vvehicleModle",userVehicleModel);
+            hashMap.put("vprice",userprice );
+            hashMap.put("vpassenger",usergetpssenger);
+            hashMap.put("vselect",userselect);
+            hashMap.put("vdesctription",userDesctription);
             hashMap.put("pImage", "noImage");
             hashMap.put("pTime", timeStamp);
 
@@ -259,10 +351,19 @@ public class  AddVehicleAdsActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(Void aVoid) {
                             //Publish in database
-                            Toast.makeText(AddVehicleActivity.this, "Ads Publishing", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AddVehicleAdsActivity.this, "Ads Publishing", Toast.LENGTH_SHORT).show();
                             //Reset views
-                            noAdult.setText("");
-                            noChildren.setText("");
+                            vname.setText("");
+                            vcn.setText("");
+                            vc.setText("");
+                            vdc.setText("");
+                            vvt.setText("");
+                            vvc.setText("");
+                            vvm.setText("");
+                            vpfkm.setText("");
+                            vpes.setText("");
+                            vsva.setText("");
+                            vdsc.setText("");
                             adsImage.setImageURI(null);
                             image_uri = null;
 
@@ -273,7 +374,7 @@ public class  AddVehicleAdsActivity extends AppCompatActivity {
                         public void onFailure(@NonNull Exception e) {
                             //Failed publish
                             pd.dismiss();
-                            Toast.makeText(AddVehicleActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AddVehicleAdsActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
 

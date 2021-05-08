@@ -12,7 +12,7 @@ tools:context=".AddVehicleAdsActivity">
     android:layout_margin="2dp">
 
     <EditText
-        android:id="@+id/pcn"
+        android:id="@+id/vcn"
         android:layout_width="193dp"
         android:layout_height="45dp"
         android:layout_marginEnd="36dp"
@@ -25,7 +25,7 @@ tools:context=".AddVehicleAdsActivity">
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:id="@+id/pc"
+        android:id="@+id/vc"
         android:layout_width="191dp"
         android:layout_height="45dp"
         android:layout_marginEnd="36dp"
@@ -37,7 +37,7 @@ tools:context=".AddVehicleAdsActivity">
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:id="@+id/pdc"
+        android:id="@+id/vdc"
         android:layout_width="191dp"
         android:layout_height="45dp"
         android:layout_marginEnd="36dp"
@@ -49,7 +49,7 @@ tools:context=".AddVehicleAdsActivity">
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:id="@+id/pvt"
+        android:id="@+id/vvt"
         android:layout_width="191dp"
         android:layout_height="45dp"
         android:layout_marginEnd="36dp"
@@ -61,7 +61,7 @@ tools:context=".AddVehicleAdsActivity">
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:id="@+id/pvm"
+        android:id="@+id/vvm"
         android:layout_width="191dp"
         android:layout_height="45dp"
         android:layout_marginEnd="36dp"
@@ -73,7 +73,7 @@ tools:context=".AddVehicleAdsActivity">
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:id="@+id/pfkm"
+        android:id="@+id/vpfkm"
         android:layout_width="191dp"
         android:layout_height="45dp"
         android:layout_marginEnd="36dp"
@@ -86,7 +86,7 @@ tools:context=".AddVehicleAdsActivity">
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:id="@+id/psva"
+        android:id="@+id/vsva"
         android:layout_width="226dp"
         android:layout_height="47dp"
         android:layout_marginTop="8dp"
@@ -99,7 +99,7 @@ tools:context=".AddVehicleAdsActivity">
         app:layout_constraintTop_toBottomOf="@+id/svaid" />
 
     <EditText
-        android:id="@+id/ppes"
+        android:id="@+id/vpes"
         android:layout_width="191dp"
         android:layout_height="45dp"
         android:layout_marginEnd="36dp"
@@ -112,7 +112,7 @@ tools:context=".AddVehicleAdsActivity">
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/pdsc"
+        android:id="@+id/vdsc"
         android:layout_width="359dp"
         android:layout_height="156dp"
         android:layout_marginTop="20dp"
@@ -130,7 +130,7 @@ tools:context=".AddVehicleAdsActivity">
         app:layout_constraintTop_toBottomOf="@+id/despid" />
 
     <EditText
-        android:id="@+id/pvc"
+        android:id="@+id/vvc"
         android:layout_width="191dp"
         android:layout_height="45dp"
         android:layout_marginEnd="36dp"
@@ -224,7 +224,7 @@ tools:context=".AddVehicleAdsActivity">
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/psva" />
+        app:layout_constraintTop_toBottomOf="@+id/vsva" />
 
     <TextView
         android:id="@+id/uyvid"
@@ -239,7 +239,7 @@ tools:context=".AddVehicleAdsActivity">
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pdsc" />
+        app:layout_constraintTop_toBottomOf="@+id/vdsc" />
 
     <TextView
         android:id="@+id/vcid"
@@ -332,7 +332,7 @@ tools:context=".AddVehicleAdsActivity">
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <EditText
-        android:id="@+id/pname"
+        android:id="@+id/vname"
         android:layout_width="193dp"
         android:layout_height="44dp"
         android:layout_marginEnd="36dp"
