@@ -33,4 +33,25 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="noOfadult">Adult</string>
     <string name="noOfChildren">Children</string>
+    <string name="adsBed">Bedroom</string>
+    <string name="adsKic">Kitchen</string>
+    <string name="adsBath">Bathroom</string>
+    <string name="nobed">1</string>
+    <string name="noKitc">1</string>
+    <string name="noBath">1</string>
+    <string name="adsPrice">Rs: 2000.00</string>
+    <string name="adsPrice1">Price For One Night</string>
+    <string name="adsTitle">Enter Your Advertisement Title</string>
+    <string name="adsAddress">Street Address</string>
+    <string name="adsState">State/Province</string>
+    <string name="adsPostal">Postal Code</string>
+    <string name="adsCity">City</string>
+    <string name="adsDesPlace">Describe your place</string>
+    <string name="desYourPlace">Type here</string>
+    <string name="adsTitleTv">Title</string>
+    <string name="priceType">LKR</string>
+    <string name="hostDetails">Host Details</string>
+    <string name="adsContactTv">Contact Details</string>
+    <string name="adsHostNumber">+94</string>
+    <string name="adsHouseRule">House rules (optical)</string>
 </resources>

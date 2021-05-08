@@ -61,7 +61,7 @@ public class AddAdvertisementActivity extends AppCompatActivity {
     String[] storagePermissions;
 
     //Views
-    EditText noAdult, noChildren;
+    EditText noAdult, noChildren, noBedroom, noKitchen, noBathroom, pTitle, pDesPrice, pAddress, pState, pPostalCode, pCity, pDescribePlace, pHouseRules, pHostPhoneNumber;
     ImageView adsImage;
     Button adsPublishBtn;
 
@@ -119,8 +119,20 @@ public class AddAdvertisementActivity extends AppCompatActivity {
         //init views
         noAdult = findViewById(R.id.noAdult);
         noChildren = findViewById(R.id.noChildren);
+        noBedroom =findViewById(R.id.noBedroom);
+        noKitchen =findViewById(R.id.noKitchen);
+        noBathroom =findViewById(R.id.noBathroom);
+        pTitle =findViewById(R.id.pTitle);
+        pDesPrice =findViewById(R.id.pDesPrice);
+        pAddress =findViewById(R.id.pAddress);
+        pState =findViewById(R.id.pState);
+        pPostalCode =findViewById(R.id.pPostalCode);
+        pCity =findViewById(R.id.pCity);
+        pDescribePlace =findViewById(R.id.pDescribePlace);
         adsImage = findViewById(R.id.adsImage);
         adsPublishBtn = findViewById(R.id.adsPublishBtn);
+        pHouseRules = findViewById(R.id.pHouseRules);
+        pHostPhoneNumber = findViewById(R.id.pHostPhoneNumber);
 
         //Get image from camera/gallery on click
         adsImage.setOnClickListener(new View.OnClickListener() {
@@ -138,29 +150,92 @@ public class AddAdvertisementActivity extends AppCompatActivity {
                 //Get data(title, description) from EditText
                 String noOfAdult = noAdult.getText().toString().trim();
                 String noOfChildren = noChildren.getText().toString().trim();
+                String noOfBedroom = noBedroom.getText().toString().trim();
+                String noOfKitchen = noKitchen.getText().toString().trim();
+                String noOfBathroom = noBathroom.getText().toString().trim();
+                String adsTitle = pTitle.getText().toString().trim();
+                String adsPrice = pDesPrice.getText().toString().trim();
+                String adsAddress = pAddress.getText().toString().trim();
+                String adsState = pState.getText().toString().trim();
+                String adsPostalCode = pPostalCode.getText().toString().trim();
+                String adsCity = pCity.getText().toString().trim();
+                String adsDescribePlace = pDescribePlace.getText().toString().trim();
+                String adsHouseRules = pHouseRules.getText().toString().trim();
+                String adsHostPhoneNumber = pHostPhoneNumber.getText().toString().trim();
+
                 if (TextUtils.isEmpty(noOfAdult)){
                     Toast.makeText(AddAdvertisementActivity.this, "Enter No Of Adults...", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
                 if (TextUtils.isEmpty(noOfChildren)){
+                    Toast.makeText(AddAdvertisementActivity.this, "Enter No Of Children...", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (TextUtils.isEmpty(noOfBedroom)){
+                    Toast.makeText(AddAdvertisementActivity.this, "Enter No Of Children...", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (TextUtils.isEmpty(noOfKitchen)){
+                    Toast.makeText(AddAdvertisementActivity.this, "Enter No Of Children...", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (TextUtils.isEmpty(noOfBathroom)){
+                    Toast.makeText(AddAdvertisementActivity.this, "Enter No Of Children...", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (TextUtils.isEmpty(adsTitle)){
+                    Toast.makeText(AddAdvertisementActivity.this, "Enter No Of Children...", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (TextUtils.isEmpty(adsPrice)){
+                    Toast.makeText(AddAdvertisementActivity.this, "Enter No Of Children...", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (TextUtils.isEmpty(adsAddress)){
+                    Toast.makeText(AddAdvertisementActivity.this, "Enter No Of Children...", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (TextUtils.isEmpty(adsState)){
+                    Toast.makeText(AddAdvertisementActivity.this, "Enter No Of Children...", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (TextUtils.isEmpty(adsCity)){
+                    Toast.makeText(AddAdvertisementActivity.this, "Enter No Of Children...", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (TextUtils.isEmpty(adsPostalCode)){
+                    Toast.makeText(AddAdvertisementActivity.this, "Enter No Of Children...", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (TextUtils.isEmpty(adsDescribePlace)){
+                    Toast.makeText(AddAdvertisementActivity.this, "Enter No Of Children...", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (TextUtils.isEmpty(adsHouseRules)){
+                    Toast.makeText(AddAdvertisementActivity.this, "Enter No Of Children...", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if (TextUtils.isEmpty(adsHostPhoneNumber)){
                     Toast.makeText(AddAdvertisementActivity.this, "Enter No Of Children...", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if (image_uri==null){
                     //Post without image
-                    uploadData(noOfAdult, noOfChildren, "noImage");
+                    uploadData(noOfAdult, noOfChildren, noOfBedroom, noOfKitchen, noOfBathroom, adsTitle, adsPrice, adsAddress,
+                            adsState, adsCity, adsPostalCode, adsDescribePlace, adsHouseRules, adsHostPhoneNumber, "noImage");
                 }
                 else {
                     //Post with image
-                    uploadData(noOfAdult, noOfChildren, String.valueOf(image_uri));
+                    uploadData(noOfAdult, noOfChildren, noOfBedroom, noOfKitchen, noOfBathroom, adsTitle, adsPrice, adsAddress,
+                            adsState, adsCity, adsPostalCode, adsDescribePlace, adsHouseRules, adsHostPhoneNumber, String.valueOf(image_uri));
                 }
             }
         });
     }
 
-    private void uploadData(String noOfAdult, String noOfChildren, String uri) {
+    private void uploadData(String noOfAdult, String noOfChildren, String noOfBedroom, String noOfKitchen, String noOfBathroom, String adsTitle, String adsPrice,
+                            String adsAddress, String adsState, String adsCity, String adsPostalCode, String adsDescribePlace, String adsHouseRules, String adsHostPhoneNumber, String uri) {
         pd.setMessage("Publishing Advertisement...");
         pd.show();
         pd.dismiss();
@@ -195,6 +270,18 @@ public class AddAdvertisementActivity extends AppCompatActivity {
                                 hashMap.put("pId",timeStamp);
                                 hashMap.put("pAdult",noOfAdult);
                                 hashMap.put("pChildern", noOfChildren);
+                                hashMap.put("pBedroom", noOfBedroom);
+                                hashMap.put("pKitchen", noOfKitchen);
+                                hashMap.put("pBathroom", noOfBathroom);
+                                hashMap.put("pTitle", adsTitle);
+                                hashMap.put("pDesPrice", adsPrice);
+                                hashMap.put("pAddress", adsAddress);
+                                hashMap.put("pState", adsState);
+                                hashMap.put("pPostalCode", adsPostalCode);
+                                hashMap.put("pCity", adsCity);
+                                hashMap.put("pDescribePlace", adsDescribePlace);
+                                hashMap.put("pHouseRules", adsHouseRules);
+                                hashMap.put("pHostPhoneNumber", adsHostPhoneNumber);
                                 hashMap.put("pImage", downloadUri);
                                 hashMap.put("pTime", timeStamp);
 
@@ -210,6 +297,18 @@ public class AddAdvertisementActivity extends AppCompatActivity {
                                                 //Reset views
                                                 noAdult.setText("");
                                                 noChildren.setText("");
+                                                noBedroom.setText("");
+                                                noKitchen.setText("");
+                                                noBathroom.setText("");
+                                                pTitle.setText("");
+                                                pDesPrice.setText("");
+                                                pAddress.setText("");
+                                                pState.setText("");
+                                                pPostalCode.setText("");
+                                                pCity.setText("");
+                                                pDescribePlace.setText("");
+                                                pHouseRules.setText("");
+                                                pHostPhoneNumber.setText("");
                                                 adsImage.setImageURI(null);
                                                 image_uri = null;
 
@@ -247,6 +346,18 @@ public class AddAdvertisementActivity extends AppCompatActivity {
             hashMap.put("pId",timeStamp);
             hashMap.put("pAdult",noOfAdult);
             hashMap.put("pChildern", noOfChildren);
+            hashMap.put("pBedroom", noOfBedroom);
+            hashMap.put("pKitchen", noOfKitchen);
+            hashMap.put("pBathroom", noOfBathroom);
+            hashMap.put("pTitle", adsTitle);
+            hashMap.put("pDesPrice", adsPrice);
+            hashMap.put("pAddress", adsAddress);
+            hashMap.put("pState", adsState);
+            hashMap.put("pPostalCode", adsPostalCode);
+            hashMap.put("pCity", adsCity);
+            hashMap.put("pDescribePlace", adsDescribePlace);
+            hashMap.put("pHouseRules", adsHouseRules);
+            hashMap.put("pHostPhoneNumber", adsHostPhoneNumber);
             hashMap.put("pImage", "noImage");
             hashMap.put("pTime", timeStamp);
 
@@ -262,6 +373,18 @@ public class AddAdvertisementActivity extends AppCompatActivity {
                             //Reset views
                             noAdult.setText("");
                             noChildren.setText("");
+                            noBedroom.setText("");
+                            noKitchen.setText("");
+                            noBathroom.setText("");
+                            pTitle.setText("");
+                            pDesPrice.setText("");
+                            pAddress.setText("");
+                            pState.setText("");
+                            pPostalCode.setText("");
+                            pCity.setText("");
+                            pDescribePlace.setText("");
+                            pHouseRules.setText("");
+                            pHostPhoneNumber.setText("");
                             adsImage.setImageURI(null);
                             image_uri = null;
 
