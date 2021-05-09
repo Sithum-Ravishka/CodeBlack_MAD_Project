@@ -64,6 +64,8 @@ public class AdepterAdds extends RecyclerView.Adapter<AdepterAdds.MyHolder> {
 
     }
 
+
+
     @Override
     public int getItemCount() {
         return addList.size();
@@ -83,9 +85,6 @@ public class AdepterAdds extends RecyclerView.Adapter<AdepterAdds.MyHolder> {
             avatarIv = itemView.findViewById(R.id.avatarIv);
             nameTv = itemView.findViewById(R.id.nameTv);
             locationTv = itemView.findViewById(R.id.locationTv);
-
-
-
         }
     }
 }
