@@ -117,7 +117,7 @@ public class  AddVehicleAdsActivity extends AppCompatActivity {
             }
         });
 
-        //init views
+        //init views data
         vname = findViewById(R.id.vname);
         vcn = findViewById(R.id.vcn);
         vc = findViewById(R.id.vc);
@@ -159,17 +159,17 @@ public class  AddVehicleAdsActivity extends AppCompatActivity {
                 String userDesctription = vdsc.getText().toString().trim();
 
                 if (TextUtils.isEmpty(userName)){
-                    Toast.makeText(AddVehicleAdsActivity.this, "Enter No Of Adults...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddVehicleAdsActivity.this, "Enter Your Name...", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if (TextUtils.isEmpty(userContactNumber)){
-                    Toast.makeText(AddVehicleAdsActivity.this, "Enter No Of Children...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddVehicleAdsActivity.this, "Enter Your Contact Number...", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if (TextUtils.isEmpty(userCity)){
-                    Toast.makeText(AddVehicleAdsActivity.this, "Enter No Of Adults...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddVehicleAdsActivity.this, "Enter N...", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
