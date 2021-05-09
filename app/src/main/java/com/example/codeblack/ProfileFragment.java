@@ -55,11 +55,8 @@ import javax.xml.parsers.SAXParser;
 
 import static android.app.Activity.RESULT_OK;
 
-/**
- * A simple {@link Fragment} subclass.
- * create an instance of this fragment.
- */
 public class ProfileFragment extends Fragment {
+
 
     //firebase
     FirebaseAuth firebaseAuth;
@@ -507,22 +504,6 @@ public class ProfileFragment extends Fragment {
         startActivityForResult(galleryIntent, IMAGE_PICK_GALLERY_CODE);
     }
 
-
-    @Override
-    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_main, menu);
-        super.onCreateOptionsMenu(menu, inflater);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        //get item id
-        int id = item.getItemId();
-        if(id == R.id.action_add_ads){
-            startActivity(new Intent(getActivity(), AddAdvertisementActivity.class));
-        }
-        return super.onOptionsItemSelected(item);
-    }
     private void checkUserStatus(){
         //get current user
         FirebaseUser user = firebaseAuth.getCurrentUser();
@@ -542,5 +523,22 @@ public class ProfileFragment extends Fragment {
         setHasOptionsMenu(true);//show menu option in fragment
         super.onCreate(savedInstanceState);
     }
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_main, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        //get item id
+        int id = item.getItemId();
+        if(id == R.id.action_add_ads){
+            startActivity(new Intent(getActivity(), AddAdvertisementActivity.class));
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
 
 }

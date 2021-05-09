@@ -33,17 +33,15 @@ import java.util.List;
 
 public class AdsFragment extends Fragment {
 
-    FirebaseAuth firebaseAuth;
-    RecyclerView recyclerView;
-    AdepterAdds adepterAdds;
-    List<ModelAdd> addList;
+        FirebaseAuth firebaseAuth;
+        RecyclerView recyclerView;
+        AdepterAdds adepterAdds;
+        List<ModelAdd> addList;
 
 
-
-
-    public AdsFragment() {
-        // Required empty public constructor
-    }
+        public AdsFragment() {
+            // Required empty public constructor
+        }
 
 
     @Override
@@ -142,6 +140,7 @@ public class AdsFragment extends Fragment {
         });
 
     }
+    
     private void checkUserStatus(){
         //get current user
         FirebaseUser user = firebaseAuth.getCurrentUser();
@@ -156,7 +155,6 @@ public class AdsFragment extends Fragment {
             getActivity().finish();
         }
     }
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);//show menu option in fragment
@@ -164,7 +162,6 @@ public class AdsFragment extends Fragment {
     }
 
     /*inflate option menu*/
-
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
         //Inflating menu
@@ -199,11 +196,7 @@ public class AdsFragment extends Fragment {
         });
         super.onCreateOptionsMenu(menu, menuInflater);
     }
-
-
-
     /*handle menu item click*/
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         //get item id
