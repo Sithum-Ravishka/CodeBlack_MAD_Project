@@ -169,17 +169,17 @@ public class  AddVehicleAdsActivity extends AppCompatActivity {
                 }
 
                 if (TextUtils.isEmpty(userCity)){
-                    Toast.makeText(AddVehicleAdsActivity.this, "Enter N...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddVehicleAdsActivity.this, "Enter Your City...", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if (TextUtils.isEmpty(userDistrid)){
-                    Toast.makeText(AddVehicleAdsActivity.this, "Enter No Of Adults...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddVehicleAdsActivity.this, "Enter Your District...", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if (TextUtils.isEmpty(userVehicleType)){
-                    Toast.makeText(AddVehicleAdsActivity.this, "Enter No Of Adults...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddVehicleAdsActivity.this, "Enter Your Vehicle Type...", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
