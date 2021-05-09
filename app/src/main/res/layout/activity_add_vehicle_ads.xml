@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="2dp">
 
-        //Enter contact
+        //Enter Contact Number
 
         <EditText
             android:id="@+id/vcn"
@@ -26,6 +26,7 @@
             app:layout_constraintBaseline_toBaselineOf="@+id/cnid"
             app:layout_constraintEnd_toEndOf="parent" />
 
+        //Enter City
         <EditText
             android:id="@+id/vc"
             android:layout_width="191dp"
@@ -38,6 +39,7 @@
             app:layout_constraintBaseline_toBaselineOf="@+id/cityid"
             app:layout_constraintEnd_toEndOf="parent" />
 
+        //Enter district
         <EditText
             android:id="@+id/vdc"
             android:layout_width="191dp"
@@ -158,6 +160,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cnid" />
 
+        //Enter Images
         <ImageView
             android:id="@+id/adsImage"
             android:layout_width="match_parent"

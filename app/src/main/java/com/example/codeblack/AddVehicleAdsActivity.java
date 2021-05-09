@@ -158,6 +158,7 @@ public class  AddVehicleAdsActivity extends AppCompatActivity {
                 String userselect = vsva.getText().toString().trim();
                 String userDesctription = vdsc.getText().toString().trim();
 
+                //If you try to submit without entering the Details, the location where the details were not entered will be shown
                 if (TextUtils.isEmpty(userName)){
                     Toast.makeText(AddVehicleAdsActivity.this, "Enter Your Name...", Toast.LENGTH_SHORT).show();
                     return;
@@ -184,32 +185,32 @@ public class  AddVehicleAdsActivity extends AppCompatActivity {
                 }
 
                 if (TextUtils.isEmpty(userVehicleCondition)){
-                    Toast.makeText(AddVehicleAdsActivity.this, "Enter No Of Adults...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddVehicleAdsActivity.this, "Enter Your Vehicle Condition...", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if (TextUtils.isEmpty(userVehicleModel)){
-                    Toast.makeText(AddVehicleAdsActivity.this, "Enter No Of Adults...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddVehicleAdsActivity.this, "Enter Your Vehicle Model...", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if (TextUtils.isEmpty(userprice)){
-                    Toast.makeText(AddVehicleAdsActivity.this, "Enter No Of Adults...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddVehicleAdsActivity.this, "Enter Your Price For 1 KM...", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if (TextUtils.isEmpty(usergetpssenger)){
-                    Toast.makeText(AddVehicleAdsActivity.this, "Enter No Of Adults...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddVehicleAdsActivity.this, "Enter Passengers...", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if (TextUtils.isEmpty(userselect)){
-                    Toast.makeText(AddVehicleAdsActivity.this, "Enter No Of Adults...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddVehicleAdsActivity.this, "Enter Available or Not...", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if (TextUtils.isEmpty(userDesctription)){
-                    Toast.makeText(AddVehicleAdsActivity.this, "Enter No Of Adults...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddVehicleAdsActivity.this, "Enter Desctription...", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
