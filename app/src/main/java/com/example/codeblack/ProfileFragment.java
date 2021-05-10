@@ -533,8 +533,9 @@ public class ProfileFragment extends Fragment {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         //get item id
         int id = item.getItemId();
-        if(id == R.id.action_add_ads){
-            startActivity(new Intent(getActivity(), AddAdvertisementActivity.class));
+        if(id == R.id.action_logout){
+            firebaseAuth.signOut();
+            checkUserStatus();
         }
         return super.onOptionsItemSelected(item);
     }

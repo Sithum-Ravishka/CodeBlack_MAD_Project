@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.codeblack.models.ModelAdd;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

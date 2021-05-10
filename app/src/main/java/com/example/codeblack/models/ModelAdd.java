@@ -1,4 +1,4 @@
-package com.example.codeblack;
+package com.example.codeblack.models;
 
 public class ModelAdd {
 

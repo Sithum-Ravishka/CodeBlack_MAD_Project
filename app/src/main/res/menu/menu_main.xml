@@ -20,4 +20,5 @@
         android:title="Add Ads"
         app:showAsAction="always"
         android:icon="@drawable/ic_ads_vehicle"/>
+    
 </menu>
