@@ -55,11 +55,8 @@ import javax.xml.parsers.SAXParser;
 
 import static android.app.Activity.RESULT_OK;
 
-/**
- * A simple {@link Fragment} subclass.
- * create an instance of this fragment.
- */
 public class ProfileFragment extends Fragment {
+
 
     //firebase
     FirebaseAuth firebaseAuth;
@@ -507,7 +504,25 @@ public class ProfileFragment extends Fragment {
         startActivityForResult(galleryIntent, IMAGE_PICK_GALLERY_CODE);
     }
 
-
+    private void checkUserStatus(){
+        //get current user
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        if(user != null){
+            //user is signed in stay here
+            //set email of logged in user
+            //uProfileTxt.setText(user.getEmail());
+        }
+        else{
+            //user not signed in, go to main activity
+            startActivity(new Intent(getActivity(), MainActivity.class));
+            getActivity().finish();
+        }
+    }
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        setHasOptionsMenu(true);//show menu option in fragment
+        super.onCreate(savedInstanceState);
+    }
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.menu_main, menu);
@@ -523,4 +538,7 @@ public class ProfileFragment extends Fragment {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
+
 }
