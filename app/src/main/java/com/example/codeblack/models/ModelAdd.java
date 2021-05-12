@@ -3,27 +3,29 @@ package com.example.codeblack.models;
 public class ModelAdd {
 
     //parameters
-    String pTime,pDesPrice,pBathroom,pKitchen,pTitle,pImage,pState,uid;
+    String pTime, pDesPrice, pBathroom, pKitchen, pTitle, pImage, pState, uid, pHostPhoneNumber, pBedroom,pAdult,pChildern,pDescribePlace;
 
     //default constructor
     public ModelAdd() {
     }
 
-    //overloaded constructor
-    public ModelAdd(String pTime, String pDesPrice, String pBathroom, String pKitchen, String pTitle, String pImage, String pState, String uid) {
+    public ModelAdd(String pTime, String pDesPrice, String pBathroom, String pKitchen, String pTitle, String pImage, String pState,
+                    String uid, String pHostPhoneNumber, String pBedroom, String pAdult, String pChildern, String pDescribePlace) {
         this.pTime = pTime;
         this.pDesPrice = pDesPrice;
         this.pBathroom = pBathroom;
         this.pKitchen = pKitchen;
         this.pTitle = pTitle;
         this.pImage = pImage;
-        this.pState  = pState;
+        this.pState = pState;
         this.uid = uid;
-
-
+        this.pHostPhoneNumber = pHostPhoneNumber;
+        this.pBedroom = pBedroom;
+        this.pAdult = pAdult;
+        this.pChildern = pChildern;
+        this.pDescribePlace = pDescribePlace;
     }
 
-    //Getter and setters
     public String getpTime() {
         return pTime;
     }
@@ -86,5 +88,45 @@ public class ModelAdd {
 
     public void setUid(String uid) {
         this.uid = uid;
+    }
+
+    public String getpHostPhoneNumber() {
+        return pHostPhoneNumber;
+    }
+
+    public void setpHostPhoneNumber(String pHostPhoneNumber) {
+        this.pHostPhoneNumber = pHostPhoneNumber;
+    }
+
+    public String getpBedroom() {
+        return pBedroom;
+    }
+
+    public void setpBedroom(String pBedroom) {
+        this.pBedroom = pBedroom;
+    }
+
+    public String getpAdult() {
+        return pAdult;
+    }
+
+    public void setpAdult(String pAdult) {
+        this.pAdult = pAdult;
+    }
+
+    public String getpChildern() {
+        return pChildern;
+    }
+
+    public void setpChildern(String pChildern) {
+        this.pChildern = pChildern;
+    }
+
+    public String getpDescribePlace() {
+        return pDescribePlace;
+    }
+
+    public void setpDescribePlace(String pDescribePlace) {
+        this.pDescribePlace = pDescribePlace;
     }
 }
