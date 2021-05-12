@@ -1,6 +1,8 @@
 package com.example.codeblack;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,8 @@ import com.example.codeblack.models.ModelAdd;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
+
+import static android.content.ContentValues.TAG;
 
 public class AdepterAdds extends RecyclerView.Adapter<AdepterAdds.MyHolder> {
 
@@ -59,13 +63,14 @@ public class AdepterAdds extends RecyclerView.Adapter<AdepterAdds.MyHolder> {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context,detailsAdd.class);
+                intent.putExtra("title",addTitle);
+                intent.putExtra("Image",addImage);
+                context.startActivity(intent);
             }
         });
 
     }
-
-
 
     @Override
     public int getItemCount() {
