@@ -3,14 +3,14 @@ package com.example.codeblack.models;
 public class ModelAdd {
 
     //parameters
-    String pTime, pDesPrice, pBathroom, pKitchen, pTitle, pImage, pState, uid, pHostPhoneNumber, pBedroom,pAdult,pChildern,pDescribePlace;
+    String pId, pTime, pDesPrice, pBathroom, pKitchen, pTitle, pImage, pState, uid, pHostPhoneNumber, pBedroom,pAdult,pChildern,pDescribePlace,uEmail, uDp, uName;
 
     //default constructor
     public ModelAdd() {
     }
 
-    public ModelAdd(String pTime, String pDesPrice, String pBathroom, String pKitchen, String pTitle, String pImage, String pState,
-                    String uid, String pHostPhoneNumber, String pBedroom, String pAdult, String pChildern, String pDescribePlace) {
+    public ModelAdd(String pId, String pTime, String pDesPrice, String pBathroom, String pKitchen, String pTitle, String pImage, String pState, String uid, String pHostPhoneNumber, String pBedroom, String pAdult, String pChildern, String pDescribePlace, String uEmail, String uDp, String uName) {
+        this.pId = pId;
         this.pTime = pTime;
         this.pDesPrice = pDesPrice;
         this.pBathroom = pBathroom;
@@ -24,6 +24,17 @@ public class ModelAdd {
         this.pAdult = pAdult;
         this.pChildern = pChildern;
         this.pDescribePlace = pDescribePlace;
+        this.uEmail = uEmail;
+        this.uDp = uDp;
+        this.uName = uName;
+    }
+
+    public String getpId() {
+        return pId;
+    }
+
+    public void setpId(String pId) {
+        this.pId = pId;
     }
 
     public String getpTime() {
@@ -128,5 +139,29 @@ public class ModelAdd {
 
     public void setpDescribePlace(String pDescribePlace) {
         this.pDescribePlace = pDescribePlace;
+    }
+
+    public String getuEmail() {
+        return uEmail;
+    }
+
+    public void setuEmail(String uEmail) {
+        this.uEmail = uEmail;
+    }
+
+    public String getuDp() {
+        return uDp;
+    }
+
+    public void setuDp(String uDp) {
+        this.uDp = uDp;
+    }
+
+    public String getuName() {
+        return uName;
+    }
+
+    public void setuName(String uName) {
+        this.uName = uName;
     }
 }

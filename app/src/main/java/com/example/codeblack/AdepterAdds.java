@@ -1,12 +1,18 @@
 package com.example.codeblack;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,6 +20,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.codeblack.models.ModelAdd;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -25,11 +41,13 @@ public class AdepterAdds extends RecyclerView.Adapter<AdepterAdds.MyHolder> {
     Context context;
     List<ModelAdd> addList;
 
+    String myUid;
 
     //constructor
     public AdepterAdds (Context context, List<ModelAdd> addList){
         this.context = context;
         this.addList = addList;
+        myUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
     }
 
     @NonNull
@@ -42,6 +60,8 @@ public class AdepterAdds extends RecyclerView.Adapter<AdepterAdds.MyHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int i) {
+        String uid = addList.get(i).getUid();
+        String pId = addList.get(i).getpId();
         String addImage = addList.get(i).getpImage();
         String addTitle = addList.get(i).getpTitle();
         String addLocation = addList.get(i).getpState();
@@ -84,7 +104,106 @@ public class AdepterAdds extends RecyclerView.Adapter<AdepterAdds.MyHolder> {
             }
         });
 
+        //Handle Button Click
+        holder.moreBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //will continue later upgrade
+                showMoreOption(holder.moreBtn, uid, pId, myUid, addImage);
+            }
+        });
     }
+
+    private void showMoreOption(ImageButton moreBtn, String uid, String pId, String myUid, String addImage) {
+
+        PopupMenu popupMenu = new PopupMenu(context, moreBtn, Gravity.END);
+
+        if(uid.equals(myUid)){
+            popupMenu.getMenu().add(Menu.NONE, 0, 0, "Delete");
+        }
+
+
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                int id = menuItem.getItemId();
+                if (id==0){
+                    beginDelete(pId, addImage);
+                }
+                return false;
+            }
+        });
+        popupMenu.show();
+    }
+
+    private void beginDelete(String pId, String addImage) {
+        if (addImage.equals("noImage")) {
+            deleteWithgoutImage(pId);
+        }
+        else {
+            deleteWithImage(pId, addImage);
+        }
+    }
+
+    private void deleteWithImage(String pId, String addImage) {
+        ProgressDialog pd = new ProgressDialog(context);
+        pd.setMessage("Deleting....");
+
+        StorageReference picRef = FirebaseStorage.getInstance().getReferenceFromUrl(addImage);
+        picRef.delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+
+                        Query fquery = FirebaseDatabase.getInstance().getReference("Ads").orderByChild("pId").equalTo(pId);
+                        fquery.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                for(DataSnapshot ds: snapshot.getChildren()){
+                                    ds.getRef().removeValue();
+                                }
+                                Toast.makeText(context, "Deleted Successfully", Toast.LENGTH_SHORT).show();
+                                pd.dismiss();
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        pd.dismiss();
+                        Toast.makeText(context, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    private void deleteWithgoutImage(String pId) {
+        ProgressDialog pd = new ProgressDialog(context);
+        pd.setMessage("Deleting....");
+
+        Query fquery = FirebaseDatabase.getInstance().getReference("Ads").orderByChild("pId").equalTo(pId);
+        fquery.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot ds: snapshot.getChildren()){
+                    ds.getRef().removeValue();
+                }
+                Toast.makeText(context, "Deleted Successfully", Toast.LENGTH_SHORT).show();
+                pd.dismiss();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
 
     @Override
     public int getItemCount() {
@@ -97,6 +216,7 @@ public class AdepterAdds extends RecyclerView.Adapter<AdepterAdds.MyHolder> {
         ImageView avatarIv;
 
         TextView nameTv,locationTv;
+        ImageButton moreBtn;
 
         public MyHolder(@NonNull View itemView) {
             super(itemView);
@@ -105,6 +225,7 @@ public class AdepterAdds extends RecyclerView.Adapter<AdepterAdds.MyHolder> {
             avatarIv = itemView.findViewById(R.id.avatarIv);
             nameTv = itemView.findViewById(R.id.nameTv);
             locationTv = itemView.findViewById(R.id.locationTv);
+            moreBtn = itemView.findViewById(R.id.moreBtn);
         }
     }
 }

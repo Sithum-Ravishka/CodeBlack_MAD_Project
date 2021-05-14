@@ -235,7 +235,7 @@ public class  AddVehicleAdsActivity extends AppCompatActivity {
         //For ads-image name, ads-id, post publish time
         String timeStamp = String.valueOf(System.currentTimeMillis());
 
-        String filePathAndName = "Ads/" + "Ads_" + timeStamp;
+        String filePathAndName = "VehicleAdd/" + "VehicleAdd_" + timeStamp;
 
         if (!uri.equals("noImage")){
             //Ads with image
@@ -275,7 +275,7 @@ public class  AddVehicleAdsActivity extends AppCompatActivity {
                                 hashMap.put("pTime", timeStamp);
 
                                 //Path to store Ads data
-                                DatabaseReference ref =FirebaseDatabase.getInstance().getReference("Ads");
+                                DatabaseReference ref =FirebaseDatabase.getInstance().getReference("VehicleAdd");
                                 //Put data in this ref
                                 ref.child(timeStamp).setValue(hashMap)
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -345,7 +345,7 @@ public class  AddVehicleAdsActivity extends AppCompatActivity {
             hashMap.put("pTime", timeStamp);
 
             //Path to store Ads data
-            DatabaseReference ref =FirebaseDatabase.getInstance().getReference("Ads");
+            DatabaseReference ref =FirebaseDatabase.getInstance().getReference("VehicleAdd");
             //Put data in this ref
             ref.child(timeStamp).setValue(hashMap)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {

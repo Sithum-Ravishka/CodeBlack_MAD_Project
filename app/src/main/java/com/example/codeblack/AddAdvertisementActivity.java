@@ -172,51 +172,51 @@ public class AddAdvertisementActivity extends AppCompatActivity {
                     return;
                 }
                 if (TextUtils.isEmpty(noOfBedroom)){
-                    Toast.makeText(AddAdvertisementActivity.this, "Enter No Of Children...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddAdvertisementActivity.this, "Enter No Of Bedroom...", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (TextUtils.isEmpty(noOfKitchen)){
-                    Toast.makeText(AddAdvertisementActivity.this, "Enter No Of Children...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddAdvertisementActivity.this, "Enter No Of Kitchen...", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (TextUtils.isEmpty(noOfBathroom)){
-                    Toast.makeText(AddAdvertisementActivity.this, "Enter No Of Children...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddAdvertisementActivity.this, "Enter No Of Bathroom...", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (TextUtils.isEmpty(adsTitle)){
-                    Toast.makeText(AddAdvertisementActivity.this, "Enter No Of Children...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddAdvertisementActivity.this, "Enter Ads Title...", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (TextUtils.isEmpty(adsPrice)){
-                    Toast.makeText(AddAdvertisementActivity.this, "Enter No Of Children...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddAdvertisementActivity.this, "Enter House Rent Price...", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (TextUtils.isEmpty(adsAddress)){
-                    Toast.makeText(AddAdvertisementActivity.this, "Enter No Of Children...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddAdvertisementActivity.this, "Enter Your Address...", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (TextUtils.isEmpty(adsState)){
-                    Toast.makeText(AddAdvertisementActivity.this, "Enter No Of Children...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddAdvertisementActivity.this, "Enter Your State...", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (TextUtils.isEmpty(adsCity)){
-                    Toast.makeText(AddAdvertisementActivity.this, "Enter No Of Children...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddAdvertisementActivity.this, "Enter Your City...", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (TextUtils.isEmpty(adsPostalCode)){
-                    Toast.makeText(AddAdvertisementActivity.this, "Enter No Of Children...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddAdvertisementActivity.this, "Enter Your PostalCode...", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (TextUtils.isEmpty(adsDescribePlace)){
-                    Toast.makeText(AddAdvertisementActivity.this, "Enter No Of Children...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddAdvertisementActivity.this, "Enter DescribePlace...", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (TextUtils.isEmpty(adsHouseRules)){
-                    Toast.makeText(AddAdvertisementActivity.this, "Enter No Of Children...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddAdvertisementActivity.this, "Enter House Rule...", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (TextUtils.isEmpty(adsHostPhoneNumber)){
-                    Toast.makeText(AddAdvertisementActivity.this, "Enter No Of Children...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddAdvertisementActivity.this, "Enter PhoneNumber...", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
