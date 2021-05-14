@@ -54,4 +54,6 @@
     <string name="adsContactTv">Contact Details</string>
     <string name="adsHostNumber">+94</string>
     <string name="adsHouseRule">House rules (optical)</string>
+    <string name="curentPass">Current Password</string>
+    <string name="newPassword">New Password</string>
 </resources>
