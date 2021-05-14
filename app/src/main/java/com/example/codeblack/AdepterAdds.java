@@ -54,8 +54,6 @@ public class AdepterAdds extends RecyclerView.Adapter<AdepterAdds.MyHolder> {
         String addPhone = addList.get(i).getpHostPhoneNumber();
         String addDescription = addList.get(i).getpDescribePlace();
 
-
-
         //set  data
         holder.locationTv.setText(addLocation);
         holder.nameTv.setText(addTitle);

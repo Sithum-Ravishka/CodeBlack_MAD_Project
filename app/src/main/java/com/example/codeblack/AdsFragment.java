@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.SearchView;
 
 import com.example.codeblack.models.ModelAdd;
+import com.example.codeblack.models.ModelBook;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -36,6 +37,9 @@ public class AdsFragment extends Fragment {
 
         FirebaseAuth firebaseAuth;
 
+        RecyclerView recyclerView;
+        List<ModelBook> bookList;
+        AdepterBooking adepterBooking;
 
         public AdsFragment() {
             // Required empty public constructor
@@ -50,10 +54,41 @@ public class AdsFragment extends Fragment {
 
             firebaseAuth = FirebaseAuth.getInstance();
 
+            //recycler view and its properties
+            recyclerView = view.findViewById(R.id.adds_recyclerView);
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+            linearLayoutManager.setStackFromEnd(true);
+            linearLayoutManager.setReverseLayout(true);
+
+            bookList =  new ArrayList<>();
+            loadBookings();
+
             return view;
         }
 
-        private void checkUserStatus(){
+    private void loadBookings() {
+            DatabaseReference dr = FirebaseDatabase.getInstance().getReference("Booking");
+
+            dr.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    bookList.clear();
+                    for (DataSnapshot ds :snapshot.getChildren()){
+                        ModelBook modelBook = ds.getValue(ModelBook.class);
+
+                        bookList.add(modelBook);
+                        adepterBooking  =  new AdepterBooking(getActivity(), bookList);
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+    }
+
+    private void checkUserStatus(){
             //get current user
             FirebaseUser user = firebaseAuth.getCurrentUser();
             if(user != null){

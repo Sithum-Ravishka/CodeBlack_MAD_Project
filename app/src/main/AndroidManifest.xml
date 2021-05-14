@@ -13,6 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CodeBlack">
+        <activity android:name=".RetriveData"></activity>
+        <activity android:name=".booking" />
+        <activity android:name=".details2" />
         <activity android:name=".AddVehicleAdsActivity" />
         <activity android:name=".AddAdvertisementActivity" />
         <activity android:name=".LoginActivity" />
@@ -27,6 +30,7 @@
         </activity>
         <activity android:name=".Create_Property_Advertisement" />
         <activity android:name=".detailsAdd" />
+
     </application>
 
 </manifest>
